@@ -2,9 +2,13 @@ const TelegramBot = require('node-telegram-bot-api');
 const cron = require('node-cron');
 const fs = require('fs');
 
-// ===== TOKEN =====
-const TELEGRAM_TOKEN = "8675866717:AAHgemakcZcuAbsbM-34xYCpjrijICkPS4I";
-const bot = new TelegramBot("8675866717:AAHgemakcZcuAbsbM-34xYCpjrijICkPS4I", { polling: true });
+const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
+
+if (!TELEGRAM_TOKEN) {
+    throw new Error("NO TELEGRAM TOKEN");
+}
+
+const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
 // ===== CHAT ID =====
 let userChatId = null;
