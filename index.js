@@ -1,3 +1,5 @@
+console.log("START BOT");
+console.log("TOKEN =", process.env.TELEGRAM_TOKEN);
 const TelegramBot = require('node-telegram-bot-api');
 const cron = require('node-cron');
 const fs = require('fs');
